@@ -2,18 +2,17 @@
 
 
 <ul>
-  <li><%= @post["posted_on"] %></li>
-  <li><%= @post["description"] %></li>
-</ul>
-
-<ul>
     <% posts = Post.where({"place_id" => @place["id"]}) %>
     <% for post in posts %>
-        <h2><%= post["title"]%></h2>
-        <p> <%= post["description"]%></p>
-        <p> <%= post["posted_on"]%></p>
+        <li>
+        <%= "#{post["name"]} #{post["date"]} #{post["description"]}" %>
+    </li>
    <% end %>
 </ul>
+
+<p>
+  <a href="/places/new">New post</a>
+</p>
 
 <p>
     <a href="/places">Back to all places</a>
